@@ -1,27 +1,26 @@
 /**
  * EmailJS Form Handler for Satyam Singh Portfolio
+ * Sends the confirmation email directly to the VISITOR who filled out the form.
  * 
- * To activate live email sending:
+ * 3-Step Setup:
  * 1. Sign up at https://www.emailjs.com/
- * 2. Create an Email Service (e.g. Gmail connected to contact.ksatyam@gmail.com)
- * 3. Create an Email Template with parameters:
- *    - {{from_name}}
- *    - {{from_email}}
- *    - {{message}}
- *    - {{to_email}}
- * 4. Paste your Public Key, Service ID, and Template ID below:
+ * 2. Connect your Email Service (e.g. Gmail) -> Copy "Service ID"
+ * 3. Create an Email Template:
+ *    - In "To Email" field, enter: {{from_email}}
+ *    - In "Subject", enter: Thanks for reaching out! | Satyam Singh
+ *    - In "Content", paste your HTML template from email-templates/visitor-autoreply-template.html
+ *    - Copy "Template ID"
+ * 4. Paste your 3 keys below:
  */
 
 const EMAILJS_CONFIG = {
-  publicKey: "YOUR_PUBLIC_KEY",       // Replace with your EmailJS Public Key
-  serviceId: "YOUR_SERVICE_ID",       // Replace with your EmailJS Service ID
-  templateIdAdmin: "YOUR_TEMPLATE_ID", // Template for notification email sent to Satyam
-  templateIdUser: ""                  // Optional: Auto-reply template sent to visitor (or configure auto-reply in EmailJS dashboard)
+  publicKey: "YOUR_PUBLIC_KEY",   // From EmailJS Dashboard > Account > Public Key
+  serviceId: "YOUR_SERVICE_ID",   // From EmailJS Dashboard > Email Services
+  templateId: "YOUR_TEMPLATE_ID"  // From EmailJS Dashboard > Email Templates
 };
 
-(function initEmailJSIntegration() {
+(function initVisitorEmailIntegration() {
   function setup() {
-    // Check if EmailJS SDK is loaded
     if (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.publicKey !== "YOUR_PUBLIC_KEY") {
       emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
     }
@@ -59,35 +58,29 @@ const EMAILJS_CONFIG = {
       if (submitBtn) {
         submitBtn.disabled = true;
         if (submitBtn.tagName === 'INPUT') {
-          submitBtn.value = 'Sending message...';
+          submitBtn.value = 'Sending confirmation...';
         } else {
-          submitBtn.textContent = 'Sending message...';
+          submitBtn.textContent = 'Sending confirmation...';
         }
       }
 
+      // Parameters sent to your EmailJS template
       const templateParams = {
         from_name: name,
         from_email: email,
-        to_name: 'Satyam Singh',
-        to_email: 'contact.ksatyam@gmail.com',
         message: message,
-        reply_to: email
+        reply_to: 'contact.ksatyam@gmail.com'
       };
 
       try {
         const isConfigured = window.emailjs && 
           EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY' &&
           EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.serviceId !== 'YOUR_SERVICE_ID' &&
-          EMAILJS_CONFIG.templateIdAdmin && EMAILJS_CONFIG.templateIdAdmin !== 'YOUR_TEMPLATE_ID';
+          EMAILJS_CONFIG.templateId && EMAILJS_CONFIG.templateId !== 'YOUR_TEMPLATE_ID';
 
         if (isConfigured) {
-          // 1. Send notification email to Satyam
-          await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdAdmin, templateParams);
-
-          // 2. If separate auto-reply template is set, send confirmation email to visitor
-          if (EMAILJS_CONFIG.templateIdUser) {
-            await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdUser, templateParams);
-          }
+          // Dispatches email directly to visitor's email address
+          await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams);
         } else {
           console.warn('[EmailJS] Configuration keys pending. Simulating successful send for demo testing.');
           await new Promise(res => setTimeout(res, 800));
@@ -100,10 +93,10 @@ const EMAILJS_CONFIG = {
           successDiv.style.display = 'block';
           successDiv.innerHTML = `
             <div class="success-message-title" style="color: #0c0d0e; font-weight: 700; font-size: 1.15rem; margin-bottom: 6px;">
-              Thank you, ${name}! Your message has been sent successfully.
+              Thank you, ${name}!
             </div>
             <p style="color: #222; font-size: 0.9rem; margin: 0; line-height: 1.4;">
-              A confirmation copy has been sent to <strong>${email}</strong>. I'll get back to you within 24 hours.
+              A confirmation email has been sent directly to <strong>${email}</strong>. I will get back to you within 24 hours.
             </p>
           `;
         }
@@ -114,10 +107,10 @@ const EMAILJS_CONFIG = {
           errorDiv.style.display = 'block';
           errorDiv.innerHTML = `
             <div class="error-message-title" style="margin-bottom: 4px;">
-              Unable to send message directly right now.
+              Unable to send confirmation email right now.
             </div>
             <p style="font-size: 0.88rem; margin: 0;">
-              Please reach out directly at <a href="mailto:contact.ksatyam@gmail.com" style="color: #a4f564; text-decoration: underline;">contact.ksatyam@gmail.com</a> or call <a href="tel:+919420840143" style="color: #a4f564; text-decoration: underline;">+91 9420840143</a>.
+              Please reach out directly at <a href="mailto:contact.ksatyam@gmail.com" style="color: #a4f564; text-decoration: underline;">contact.ksatyam@gmail.com</a>.
             </p>
           `;
         }

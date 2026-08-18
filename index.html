@@ -475,6 +475,74 @@ html {
   scroll-margin-top: 32px !important;
 }
 
+
+/* ==========================================================================
+   WORK CARD ENHANCEMENTS – Hover Button & Description
+   ========================================================================== */
+.work-info, .work-hero-info {
+  display: block !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.work-info:hover, .work-hero-info:hover {
+  transform: translateY(-4px) !important;
+}
+.work-image-wrap {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+}
+.work-image-wrap .work-image {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.work-info:hover .work-image, .work-hero-info:hover .work-image {
+  transform: scale(1.03) !important;
+}
+.work-button-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+.work-button {
+  background: rgba(14, 15, 18, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+  padding: 12px 24px !important;
+  border-radius: 999px !important;
+  opacity: 0 !important;
+  transform: translateY(12px) scale(0.95) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.work-info:hover .work-button, .work-hero-info:hover .work-button {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+.work-button-title {
+  color: #a4f564 !important;
+  font-weight: 600 !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.02em !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.work-project-desc {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  margin-top: 10px !important;
+  font-family: Inter, sans-serif !important;
+  text-align: left !important;
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {
@@ -574,7 +642,195 @@ html {
 </div>
 
     <div class="client-blur-right"></div>
-  </div></div></div></section><section class="work-section section-spacing-top"><div id="work" class="offset-fix"></div><div class="container-small"><div data-w-id="56bdc69d-e2b0-51b9-339c-a943edc39dfc" style="opacity:0" class="grid-work"><h2 class="grid-title">Featured Projects</h2></div><div data-w-id="9fb39bd8-1fd6-8426-730d-f421b73ff253" style="opacity:0" class="work-slider"><div data-delay="1" data-animation="slide" class="work-slider-item w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="true" data-autoplay-limit="1" data-nav-spacing="3" data-duration="500" data-infinite="true"><div class="work-mask w-slider-mask"><div data-w-id="b29bc7e0-7f3d-5214-1ed6-ceee86466ef8" style="opacity:0.4" class="work-slide w-slide"><div class="w-dyn-list"><div role="list" class="work-item w-dyn-items"><div role="listitem" class="w-dyn-item"><a data-w-id="40341940-af03-3f71-2fe0-852c09a4611e" href="/work/studysync" class="work-info w-inline-block"><div class="work-content"><div class="work-image-wrap"><img src="images/01.webp" loading="lazy" style="filter:blur(0px)" alt="StudySync Project" sizes="100vw" srcset="images/01-p-500.webp 500w, images/01-p-800.webp 800w, images/01-p-1080.webp 1080w, images/01-p-1600.webp 1600w, images/01.webp 1920w" class="work-image"/><div class="work-button-wrap"><div style="opacity:0;-webkit-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="work-button"><div class="work-button-title">View project</div></div></div></div><div class="w-layout-grid grid-work-info"><div class="work-info-title">StudySync – Real-Time AI Study Platform</div><div class="work-category"><div class="category-dot"></div><div class="category-service">Full-Stack / AI</div></div></div></div></a></div></div></div></div><div data-w-id="1af53c25-180f-c52f-dde9-821e7b2c5404" style="opacity:0.4" class="work-slide w-slide"><div class="w-dyn-list"><div role="list" class="work-item w-dyn-items"><div role="listitem" class="w-dyn-item"><a data-w-id="1af53c25-180f-c52f-dde9-821e7b2c5408" href="/work/carex-ai" class="work-info w-inline-block"><div class="work-content"><div class="work-image-wrap"><img src="images/02.webp" loading="lazy" style="filter:blur(0px)" alt="Carex AI Project" sizes="100vw" srcset="images/02-p-500.webp 500w, images/02-p-800.webp 800w, images/02-p-1080.webp 1080w, images/02-p-1600.webp 1600w, images/02.webp 1920w" class="work-image"/><div class="work-button-wrap"><div style="opacity:0;-webkit-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="work-button"><div class="work-button-title">View project</div></div></div></div><div class="w-layout-grid grid-work-info"><div class="work-info-title">Carex AI – Voice Medical Consultation</div><div class="work-category"><div class="category-dot"></div><div class="category-service">AI / Voice Pipeline</div></div></div></div></a></div></div></div></div><div data-w-id="e9d6ada9-cca6-58e9-4876-331622296ada" style="opacity:0.4" class="work-slide w-slide"><div class="w-dyn-list"><div role="list" class="work-item w-dyn-items"><div role="listitem" class="w-dyn-item"><a data-w-id="e9d6ada9-cca6-58e9-4876-331622296ade" href="/work/evolvex" class="work-info w-inline-block"><div class="work-content"><div class="work-image-wrap"><img src="images/03.webp" loading="lazy" style="filter:blur(0px)" alt="EvolveX Project" sizes="100vw" srcset="images/03-p-500.webp 500w, images/03-p-800.webp 800w, images/03-p-1080.webp 1080w, images/03-p-1600.webp 1600w, images/03.webp 1920w" class="work-image"/><div class="work-button-wrap"><div style="opacity:0;-webkit-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -60px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="work-button"><div class="work-button-title">View project</div></div></div></div><div class="w-layout-grid grid-work-info"><div class="work-info-title">EvolveX – Decentralized Freelancing Platform</div><div class="work-category"><div class="category-dot"></div><div class="category-service">Web3 / Blockchain</div></div></div></div></a></div></div></div></div></div><div data-w-id="b29bc7e0-7f3d-5214-1ed6-ceee86466efa" style="opacity:0" class="slider-arrow left w-slider-arrow-left"><img src="images/left-arrow.svg" loading="lazy" alt="Left Arrow" class="left-arrow-icon"/></div><div data-w-id="b29bc7e0-7f3d-5214-1ed6-ceee86466efc" style="opacity:0" class="slider-arrow right w-slider-arrow-right"><img src="images/right-arrow-light.svg" loading="lazy" alt="Right Arrow" class="right-arrow-icon"/></div><div class="slide-nav w-slider-nav w-round"></div></div></div></div></section><section class="about-section section-spacing"><div id="about" class="offset-fix"></div><div class="inner-container-small"><div class="about-content"><div class="about-top"><div data-w-id="da7408f8-d82b-1571-ae7b-ec922c5561a1" class="about-top-content"><div data-w-id="67b5fdfd-24cf-e80a-76d7-8fb9f2889fe3" class="about-image-wrap"><img src="images/satyam-portrait.jpg" loading="lazy" alt="Satyam Singh" class="about-image"/></div><div data-w-id="bc754d83-ff8c-db72-1807-f61b3dad600a" class="about-experience-info"><h2 class="about-title">2+</h2><div class="about-description">Years of engineering high-impact systems.</div></div></div><div role="text" class="type-text">Call me Satyam</div></div><h2 data-w-id="7a2683b5-7370-382a-3f15-5fd3b30dc9dc" style="opacity:0" class="about-main-description">I'm a full-stack &amp; AI developer crafting high-performance web platforms, multimodal AI systems, and Web3 solutions. Explore <a href="#work" class="about-link">my work</a> below to see what I build.</h2><img src="images/satyam-signature.png" loading="lazy" style="opacity:0; max-height: 120px; width: auto; filter: drop-shadow(0 0 14px rgba(255,255,255,0.25));" data-w-id="9c1daf1a-5d13-18ec-9f00-770875001ef2" alt="Satyam Singh Signature" class="about-sign"/></div></div></section><section class="service-section section-spacing-bottom"><div id="service" class="offset-fix"></div><div class="inner-container-small"><div data-w-id="e1896b8a-4dfa-81cb-7bcc-30a02e491b61" class="section-title"><h2 style="opacity:0" class="service-main-title">Core Expertise</h2></div><div class="service-list"><div data-w-id="c67d3483-a1b2-4430-b764-b47b67e135fa" style="opacity:0" class="service-item one"><div class="w-layout-grid grid-service"><div class="service-title-wrap"><img src="images/icon-1.svg" loading="lazy" alt="Stack Icon" class="service-icon"/><h3 class="service-title">Full-Stack Web Development</h3></div><div class="service-info"><div class="service-content"><div class="service-description">Robust frontend &amp; backend solutions engineered for high performance.</div><ul role="list" class="service-list-item"><li class="service-content-item">React &amp; Next.js / TypeScript</li><li class="service-content-item">Node.js &amp; Express Architecture</li><li class="service-content-item">PostgreSQL, Supabase &amp; Prisma</li><li class="service-content-item">Real-Time (Socket.IO &amp; WebRTC)</li></ul></div><div class="service-divider"></div><div class="service-tech"><div class="service-tech-title">Key Stack:</div><div class="service-stack-item">
+  </div></div></div></section><section class="work-section section-spacing-top"><div id="work" class="offset-fix"></div><div class="container-small"><div data-w-id="56bdc69d-e2b0-51b9-339c-a943edc39dfc" style="opacity:0" class="grid-work"><h2 class="grid-title">Featured Projects</h2></div><div data-w-id="9fb39bd8-1fd6-8426-730d-f421b73ff253" style="opacity:0" class="work-slider"><div data-delay="1" data-animation="slide" class="work-slider-item w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="true" data-autoplay-limit="1" data-nav-spacing="3" data-duration="500" data-infinite="true"><div class="work-mask w-slider-mask">
+
+        <div class="work-slide w-slide">
+          <div class="w-dyn-list">
+            <div role="list" class="work-item w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="https://www.bitbulb.tech/" target="_blank" rel="noopener noreferrer" class="work-info w-inline-block" title="Bitbulb Studios – Creative Digital Agency">
+                  <div class="work-content">
+                    <div class="work-image-wrap">
+                      <img src="images/01.webp" loading="lazy" alt="Bitbulb Studios – Creative Digital Agency" sizes="100vw" srcset="images/01-p-500.webp 500w, images/01-p-800.webp 800w, images/01-p-1080.webp 1080w, images/01-p-1600.webp 1600w, images/01.webp 1920w" class="work-image"/>
+                      <div class="work-button-wrap">
+                        <div class="work-button">
+                          <div class="work-button-title">View project ↗</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-layout-grid grid-work-info">
+                      <div class="work-info-title">Bitbulb Studios – Creative Digital Agency</div>
+                      <div class="work-category">
+                        <div class="category-dot"></div>
+                        <div class="category-service">Agency / Full-Stack</div>
+                      </div>
+                    </div>
+                    <p class="work-project-desc" style="color: rgba(255, 255, 255, 0.65); font-size: 0.92rem; line-height: 1.55; margin-top: 10px; font-family: Inter, sans-serif; text-align: left;">
+                      Founder & lead developer of Bitbulb Studios, engineering high-performance modern web platforms, creative digital branding, and custom web applications.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-slide w-slide">
+          <div class="w-dyn-list">
+            <div role="list" class="work-item w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="https://github.com/SATYAM-KS/EvolveX-falcon" target="_blank" rel="noopener noreferrer" class="work-info w-inline-block" title="EvolveX – Decentralized Freelancing Platform">
+                  <div class="work-content">
+                    <div class="work-image-wrap">
+                      <img src="images/03.webp" loading="lazy" alt="EvolveX – Decentralized Freelancing Platform" sizes="100vw" srcset="images/03-p-500.webp 500w, images/03-p-800.webp 800w, images/03-p-1080.webp 1080w, images/03-p-1600.webp 1600w, images/03.webp 1920w" class="work-image"/>
+                      <div class="work-button-wrap">
+                        <div class="work-button">
+                          <div class="work-button-title">View project ↗</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-layout-grid grid-work-info">
+                      <div class="work-info-title">EvolveX – Decentralized Freelancing Platform</div>
+                      <div class="work-category">
+                        <div class="category-dot"></div>
+                        <div class="category-service">Web3 / Blockchain</div>
+                      </div>
+                    </div>
+                    <p class="work-project-desc" style="color: rgba(255, 255, 255, 0.65); font-size: 0.92rem; line-height: 1.55; margin-top: 10px; font-family: Inter, sans-serif; text-align: left;">
+                      Decentralized freelance and milestone escrow marketplace built on Aptos blockchain with Move smart contracts, automated milestone escrow, and NFT-gated credential verification.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-slide w-slide">
+          <div class="w-dyn-list">
+            <div role="list" class="work-item w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="https://carexai.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-info w-inline-block" title="Carex.ai – Voice Medical Consultation">
+                  <div class="work-content">
+                    <div class="work-image-wrap">
+                      <img src="images/02.webp" loading="lazy" alt="Carex.ai – Voice Medical Consultation" sizes="100vw" srcset="images/02-p-500.webp 500w, images/02-p-800.webp 800w, images/02-p-1080.webp 1080w, images/02-p-1600.webp 1600w, images/02.webp 1920w" class="work-image"/>
+                      <div class="work-button-wrap">
+                        <div class="work-button">
+                          <div class="work-button-title">View project ↗</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-layout-grid grid-work-info">
+                      <div class="work-info-title">Carex.ai – Voice Medical Consultation</div>
+                      <div class="work-category">
+                        <div class="category-dot"></div>
+                        <div class="category-service">AI / Voice Pipeline</div>
+                      </div>
+                    </div>
+                    <p class="work-project-desc" style="color: rgba(255, 255, 255, 0.65); font-size: 0.92rem; line-height: 1.55; margin-top: 10px; font-family: Inter, sans-serif; text-align: left;">
+                      Real-time conversational medical assistant featuring low-latency speech-to-text, symptom diagnostic pipelines, and intelligent doctor-assisted consultation summaries.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-slide w-slide">
+          <div class="w-dyn-list">
+            <div role="list" class="work-item w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="https://vault-bank.netlify.app/" target="_blank" rel="noopener noreferrer" class="work-info w-inline-block" title="Vault – Modern Digital Banking Interface">
+                  <div class="work-content">
+                    <div class="work-image-wrap">
+                      <img src="images/04.webp" loading="lazy" alt="Vault – Modern Digital Banking Interface" sizes="100vw" srcset="images/04-p-500.webp 500w, images/04-p-800.webp 800w, images/04-p-1080.webp 1080w, images/04-p-1600.webp 1600w, images/04.webp 1920w" class="work-image"/>
+                      <div class="work-button-wrap">
+                        <div class="work-button">
+                          <div class="work-button-title">View project ↗</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-layout-grid grid-work-info">
+                      <div class="work-info-title">Vault – Modern Digital Banking Interface</div>
+                      <div class="work-category">
+                        <div class="category-dot"></div>
+                        <div class="category-service">Fintech / Banking</div>
+                      </div>
+                    </div>
+                    <p class="work-project-desc" style="color: rgba(255, 255, 255, 0.65); font-size: 0.92rem; line-height: 1.55; margin-top: 10px; font-family: Inter, sans-serif; text-align: left;">
+                      Next-generation fintech banking web platform providing real-time financial tracking, multi-currency transaction management, and secure wallet analytics.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-slide w-slide">
+          <div class="w-dyn-list">
+            <div role="list" class="work-item w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="https://trystudysync.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-info w-inline-block" title="StudySync – Real-Time AI Study & Collaboration">
+                  <div class="work-content">
+                    <div class="work-image-wrap">
+                      <img src="images/05.webp" loading="lazy" alt="StudySync – Real-Time AI Study & Collaboration" sizes="100vw" srcset="images/05-p-500.webp 500w, images/05-p-800.webp 800w, images/05-p-1080.webp 1080w, images/05-p-1600.webp 1600w, images/05.webp 1920w" class="work-image"/>
+                      <div class="work-button-wrap">
+                        <div class="work-button">
+                          <div class="work-button-title">View project ↗</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-layout-grid grid-work-info">
+                      <div class="work-info-title">StudySync – Real-Time AI Study & Collaboration</div>
+                      <div class="work-category">
+                        <div class="category-dot"></div>
+                        <div class="category-service">Full-Stack / AI</div>
+                      </div>
+                    </div>
+                    <p class="work-project-desc" style="color: rgba(255, 255, 255, 0.65); font-size: 0.92rem; line-height: 1.55; margin-top: 10px; font-family: Inter, sans-serif; text-align: left;">
+                      Collaborative study space integrating real-time live rooms, shared whiteboards, intelligent flashcards, and AI document summarization workflows.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-slide w-slide">
+          <div class="w-dyn-list">
+            <div role="list" class="work-item w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <a href="https://bharatdonation.netlify.app/" target="_blank" rel="noopener noreferrer" class="work-info w-inline-block" title="Bharat Donation – Transparent Crowdfunding Platform">
+                  <div class="work-content">
+                    <div class="work-image-wrap">
+                      <img src="images/img2.webp" loading="lazy" alt="Bharat Donation – Transparent Crowdfunding Platform" sizes="100vw" srcset="images/img2.webp 1920w" class="work-image"/>
+                      <div class="work-button-wrap">
+                        <div class="work-button">
+                          <div class="work-button-title">View project ↗</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-layout-grid grid-work-info">
+                      <div class="work-info-title">Bharat Donation – Transparent Crowdfunding Platform</div>
+                      <div class="work-category">
+                        <div class="category-dot"></div>
+                        <div class="category-service">Web3 / Social Impact</div>
+                      </div>
+                    </div>
+                    <p class="work-project-desc" style="color: rgba(255, 255, 255, 0.65); font-size: 0.92rem; line-height: 1.55; margin-top: 10px; font-family: Inter, sans-serif; text-align: left;">
+                      Decentralized charity and crowdfunding platform connecting verified social causes with transparent, trustless, and direct donor contributions.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <div data-w-id="b29bc7e0-7f3d-5214-1ed6-ceee86466efa" style="opacity:1" class="slider-arrow left w-slider-arrow-left"><img src="images/left-arrow.svg" loading="lazy" alt="Left Arrow" class="left-arrow-icon"/></div><div data-w-id="b29bc7e0-7f3d-5214-1ed6-ceee86466efc" style="opacity:0" class="slider-arrow right w-slider-arrow-right"><img src="images/right-arrow-light.svg" loading="lazy" alt="Right Arrow" class="right-arrow-icon"/></div><div class="slide-nav w-slider-nav w-round"></div></div></div></div></section><section class="about-section section-spacing"><div id="about" class="offset-fix"></div><div class="inner-container-small"><div class="about-content"><div class="about-top"><div data-w-id="da7408f8-d82b-1571-ae7b-ec922c5561a1" class="about-top-content"><div data-w-id="67b5fdfd-24cf-e80a-76d7-8fb9f2889fe3" class="about-image-wrap"><img src="images/satyam-portrait.jpg" loading="lazy" alt="Satyam Singh" class="about-image"/></div><div data-w-id="bc754d83-ff8c-db72-1807-f61b3dad600a" class="about-experience-info"><h2 class="about-title">2+</h2><div class="about-description">Years of engineering high-impact systems.</div></div></div><div role="text" class="type-text">Call me Satyam</div></div><h2 data-w-id="7a2683b5-7370-382a-3f15-5fd3b30dc9dc" style="opacity:0" class="about-main-description">I'm a full-stack &amp; AI developer crafting high-performance web platforms, multimodal AI systems, and Web3 solutions. Explore <a href="#work" class="about-link">my work</a> below to see what I build.</h2><img src="images/satyam-signature.png" loading="lazy" style="opacity:0; max-height: 120px; width: auto; filter: drop-shadow(0 0 14px rgba(255,255,255,0.25));" data-w-id="9c1daf1a-5d13-18ec-9f00-770875001ef2" alt="Satyam Singh Signature" class="about-sign"/></div></div></section><section class="service-section section-spacing-bottom"><div id="service" class="offset-fix"></div><div class="inner-container-small"><div data-w-id="e1896b8a-4dfa-81cb-7bcc-30a02e491b61" class="section-title"><h2 style="opacity:0" class="service-main-title">Core Expertise</h2></div><div class="service-list"><div data-w-id="c67d3483-a1b2-4430-b764-b47b67e135fa" style="opacity:0" class="service-item one"><div class="w-layout-grid grid-service"><div class="service-title-wrap"><img src="images/icon-1.svg" loading="lazy" alt="Stack Icon" class="service-icon"/><h3 class="service-title">Full-Stack Web Development</h3></div><div class="service-info"><div class="service-content"><div class="service-description">Robust frontend &amp; backend solutions engineered for high performance.</div><ul role="list" class="service-list-item"><li class="service-content-item">React &amp; Next.js / TypeScript</li><li class="service-content-item">Node.js &amp; Express Architecture</li><li class="service-content-item">PostgreSQL, Supabase &amp; Prisma</li><li class="service-content-item">Real-Time (Socket.IO &amp; WebRTC)</li></ul></div><div class="service-divider"></div><div class="service-tech"><div class="service-tech-title">Key Stack:</div><div class="service-stack-item">
     <img src="images/tech/react.svg" loading="lazy" alt="React" class="service-stack-logo" title="React"/>
     <img src="images/tech/nextjs.svg" loading="lazy" alt="Next.js" class="service-stack-logo" title="Next.js"/>
     <img src="images/tech/typescript.svg" loading="lazy" alt="TypeScript" class="service-stack-logo" title="TypeScript"/>

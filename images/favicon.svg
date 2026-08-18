@@ -1,28 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <rect width="100" height="100" rx="24" fill="#0c0d0e"/>
-  <g transform="translate(10, 8)" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Curly Hair Loops on top and sides -->
-    <path d="M 22 42 C 14 36, 12 24, 24 18 C 22 10, 36 6, 44 14 C 48 6, 62 8, 64 16 C 72 10, 80 18, 76 26 C 84 32, 78 44, 70 46" fill="#ffffff"/>
-    <path d="M 28 22 C 32 16, 42 16, 46 22 C 50 16, 60 16, 64 22" stroke="#0c0d0e" stroke-width="2.5" fill="none"/>
-    <path d="M 36 12 C 42 8, 52 8, 56 14" stroke="#0c0d0e" stroke-width="2" fill="none"/>
-    <path d="M 20 32 C 16 26, 24 20, 30 26" stroke="#0c0d0e" stroke-width="2" fill="none"/>
-    <path d="M 68 28 C 76 24, 74 36, 66 38" stroke="#0c0d0e" stroke-width="2" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+  <g fill="#ffffff" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Big Curly Hair Crown (loops & texture) -->
+    <!-- Top & Side Curls (Circles & Arcs) -->
+    <circle cx="28" cy="22" r="11"/>
+    <circle cx="42" cy="15" r="12"/>
+    <circle cx="58" cy="15" r="12"/>
+    <circle cx="72" cy="22" r="11"/>
+    <circle cx="20" cy="34" r="10"/>
+    <circle cx="80" cy="34" r="10"/>
+    <circle cx="18" cy="46" r="8"/>
+    <circle cx="82" cy="46" r="8"/>
+    
+    <!-- Central Hair Body -->
+    <path d="M 20 45 C 16 26, 32 10, 50 10 C 68 10, 84 26, 80 45 Z"/>
+    
+    <!-- Forehead Curls Texture Cutouts (Transparent negative space) -->
+    <path d="M 28 36 C 34 32, 40 38, 44 34 C 48 30, 54 38, 60 34 C 64 30, 70 36, 74 36" stroke="#000000" stroke-width="3" fill="none" opacity="0.95"/>
+    <path d="M 32 24 C 38 18, 46 22, 50 18 C 54 22, 62 18, 68 24" stroke="#000000" stroke-width="2.5" fill="none" opacity="0.95"/>
+    <path d="M 22 40 C 26 34, 30 42, 34 38" stroke="#000000" stroke-width="2.5" fill="none" opacity="0.95"/>
+    <path d="M 78 40 C 74 34, 70 42, 66 38" stroke="#000000" stroke-width="2.5" fill="none" opacity="0.95"/>
 
-    <!-- Face outline & jawline -->
-    <path d="M 26 40 L 26 48 C 26 58, 34 68, 44 72 C 54 68, 62 58, 62 48 L 62 40" fill="#ffffff" stroke="#ffffff"/>
+    <!-- Face (Head & Jawline) -->
+    <path d="M 25 46 L 25 54 C 25 68, 35 80, 50 84 C 65 80, 75 68, 75 54 L 75 46 Z"/>
+    
     <!-- Ears -->
-    <path d="M 26 44 C 20 44, 20 52, 26 54" fill="#ffffff"/>
-    <path d="M 62 44 C 68 44, 68 52, 62 54" fill="#ffffff"/>
+    <ellipse cx="23" cy="52" rx="5" ry="7"/>
+    <ellipse cx="77" cy="52" rx="5" ry="7"/>
     
-    <!-- Neck and turtleneck collar -->
-    <path d="M 34 70 L 34 82 L 54 82 L 54 70" fill="#ffffff"/>
+    <!-- Ear Cutouts -->
+    <path d="M 23 49 C 21 51, 21 54, 23 56" stroke="#000000" stroke-width="2" fill="none"/>
+    <path d="M 77 49 C 79 51, 79 54, 77 56" stroke="#000000" stroke-width="2" fill="none"/>
+
+    <!-- Neck & High Collar / Turtleneck -->
+    <path d="M 38 81 L 38 94 C 38 95, 42 97, 50 97 C 58 97, 62 95, 62 94 L 62 81 Z"/>
+    
     <!-- Shoulders -->
-    <path d="M 12 92 C 16 82, 30 82, 34 82 L 54 82 C 58 82, 72 82, 76 92" fill="#ffffff"/>
+    <path d="M 12 100 C 14 94, 28 92, 38 92 L 62 92 C 72 92, 86 94, 88 100 Z"/>
+
+    <!-- Facial Features Cutouts (Clean negative space) -->
+    <!-- Eyebrows -->
+    <path d="M 32 49 C 36 46, 42 47, 45 49" stroke="#000000" stroke-width="3" fill="none"/>
+    <path d="M 55 49 C 58 47, 64 46, 68 49" stroke="#000000" stroke-width="3" fill="none"/>
     
-    <!-- Facial details (minimal dark contrast) -->
-    <path d="M 32 46 C 35 44, 39 44, 42 46" stroke="#0c0d0e" stroke-width="2.5"/>
-    <path d="M 46 46 C 49 44, 53 44, 56 46" stroke="#0c0d0e" stroke-width="2.5"/>
-    <path d="M 44 46 L 44 56 L 47 56" stroke="#0c0d0e" stroke-width="2"/>
-    <path d="M 38 62 C 41 64, 47 64, 50 62" stroke="#0c0d0e" stroke-width="2.5"/>
+    <!-- Eyes (Sleek minimalist arc) -->
+    <path d="M 34 55 C 37 57, 42 57, 44 55" stroke="#000000" stroke-width="2.5" fill="none"/>
+    <path d="M 56 55 C 58 57, 63 57, 66 55" stroke="#000000" stroke-width="2.5" fill="none"/>
+
+    <!-- Nose -->
+    <path d="M 50 51 L 50 64 L 54 64" stroke="#000000" stroke-width="2.5" fill="none"/>
+    
+    <!-- Lips -->
+    <path d="M 43 72 C 47 74, 53 74, 57 72" stroke="#000000" stroke-width="2.5" fill="none"/>
+    
+    <!-- Chin definition -->
+    <path d="M 46 78 C 48 79, 52 79, 54 78" stroke="#000000" stroke-width="2" fill="none"/>
   </g>
 </svg>

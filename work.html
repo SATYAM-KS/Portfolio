@@ -874,17 +874,23 @@ input, textarea, select {
 }
 
 /* ==========================================================================
-   ENHANCED FOOTER – Deep Dark Overlay & Seamless Edge-to-Edge Cut
+   REFINED FOOTER TOP OVERLAY & MARQUEE SPACING
    ========================================================================== */
 
+/* Footer Top Border & Compact Dark Overlay */
 .footer-content {
   position: relative !important;
   overflow: hidden !important;
+  border-top-left-radius: 28px !important;
+  border-top-right-radius: 28px !important;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.65) !important;
 }
 
-/* Deep Solid Dark Gradient Overlay at Top of Card */
 .footer-gradient-shadow {
   position: absolute !important;
   top: 0 !important;
@@ -892,23 +898,21 @@ input, textarea, select {
   right: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: 250px !important;
+  height: 110px !important;
   inset: 0 0 auto 0 !important;
   margin: 0 !important;
   background: linear-gradient(180deg, 
     #0a0a0a 0%, 
-    #0a0a0a 28%, 
-    rgba(10, 10, 10, 0.94) 48%, 
-    rgba(10, 10, 10, 0.72) 68%, 
-    rgba(10, 10, 10, 0.32) 86%, 
+    rgba(10, 10, 10, 0.95) 28%, 
+    rgba(10, 10, 10, 0.55) 65%, 
     rgba(10, 10, 10, 0) 100%
   ) !important;
   filter: none !important;
   -webkit-filter: none !important;
   pointer-events: none !important;
   z-index: 1 !important;
-  border-top-left-radius: inherit !important;
-  border-top-right-radius: inherit !important;
+  border-top-left-radius: 28px !important;
+  border-top-right-radius: 28px !important;
 }
 
 /* Seamless Edge-to-Edge Bottom Zigzag Cut */
@@ -928,6 +932,43 @@ input, textarea, select {
 .footer-about-info, .footer-about-avatar, .footer-about-title-wrap, .footer-form-wrap {
   position: relative !important;
   z-index: 2 !important;
+}
+
+/* Compact Logo Marquee Spacing */
+.marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  overflow: hidden !important;
+  user-select: none !important;
+}
+.marquee-group {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 28px !important;
+  padding-right: 28px !important;
+  min-width: unset !important;
+  animation: infiniteScroll 26s linear infinite !important;
+}
+.marquee-logo-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+.client-image {
+  height: 28px !important;
+  max-height: 28px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  opacity: 0.8 !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+.marquee-logo-wrap:hover .client-image {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
 }
 /* 2. Hide Misplaced Lone Dot in Front of Show All Button */
 .grid-timeline-info-copy {

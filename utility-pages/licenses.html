@@ -535,18 +535,19 @@ input, textarea, select {
 }
 
 /* ==========================================================================
-   FOOTER EXACT DESIGN MATCH (From User Reference Image)
+   FOOTER EXACT DESIGN MATCH (Lime Green Receipt Card Emerging from Slot)
    ========================================================================== */
 
 .footer {
   position: relative !important;
   overflow: visible !important;
+  padding-bottom: 3.75rem !important;
 }
 
-/* ── Top floating capsule decoration (dark pill visible above green card) ── */
+/* Top floating capsule slot (Dark container behind the top of the card) */
 .footer-decoration {
   position: absolute !important;
-  top: -34px !important;
+  top: -30px !important;
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
@@ -555,92 +556,83 @@ input, textarea, select {
   align-items: center !important;
   z-index: 0 !important;
   pointer-events: none !important;
-  padding: 0 24px !important;
-  box-sizing: border-box !important;
+}
+
+.footer-decoration .inner-container {
+  width: 100% !important;
+  max-width: 820px !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .footer-shape {
-  border-radius: 24px 24px 20px 20px !important;
-  background-color: #101213 !important;
-  box-shadow:
-    inset 0 -3px 8px rgba(0,0,0,0.8),
-    0 6px 24px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.07) !important;
-  /* Wider — stretches closer to the full width of the green card below */
-  width: calc(100% - 16px) !important;
-  max-width: 860px !important;
-  padding: 10px 10px 0 10px !important;
+  border-radius: 20px !important;
+  background-color: #151619 !important;
+  box-shadow: inset 0 -2px 6px 0 #000000, 0 4px 16px 0 rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  width: 100% !important;
+  padding: 10px !important;
   display: flex !important;
   justify-content: center !important;
-  align-items: flex-end !important;
-  /* Overlap bottom corners over the green card edge */
-  margin-bottom: -4px !important;
-  position: relative !important;
-  z-index: 2 !important;
+  align-items: center !important;
+  overflow: hidden !important;
 }
 
 .footer-shape-inner {
-  border-radius: 16px 16px 0 0 !important;
-  background: linear-gradient(180deg, #1c1f23 0%, #0e1012 100%) !important;
+  border-radius: 12px !important;
+  background-color: #0a0a0a !important;
   width: 100% !important;
   height: 56px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.9), inset 0 -2px 4px rgba(255,255,255,0.03) !important;
+  box-shadow: inset 0 3px 8px #000000, 0 5px 10px rgba(10, 10, 10, 0.8) !important;
 }
 
-/* ── Main green card ── */
+/* The Main Lime Green Card (Emerging from the slot) */
 .footer-content {
   position: relative !important;
   z-index: 1 !important;
-  border-radius: 20px 20px 0 0 !important;
-  /* Dark-to-medium-green: near-black top → deep forest green bottom (matching reference) */
-  background: linear-gradient(175deg,
-    #0c1a0e 0%,
-    #0f2212 10%,
-    #163a1c 22%,
-    #1d5025 36%,
-    #266630 50%,
-    #2e7a38 62%,
-    #388f42 74%,
-    #42a04c 85%,
-    #4aaf54 100%
-  ) !important;
+  border-radius: 16px 16px 0 0 !important;
+  background: linear-gradient(140deg, #dafe7d 0%, #8eed82 35%, #7af080 100%) !important;
   overflow: hidden !important;
-  box-shadow: 0 -8px 40px rgba(0,0,0,0.7), 0 20px 60px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6) !important;
+  padding: 4.5rem 2.5rem 3rem !important;
 }
 
-/* ── Deep dark top overlay ── */
-/* Since the card bg itself is near-black at top, the overlay just adds depth */
+/* Dark Gradient Shadow at Top of Green Card */
 .footer-gradient-shadow {
   position: absolute !important;
-  inset: 0 0 auto 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
   width: 100% !important;
-  height: 38% !important;
-  max-height: 200px !important;
-  background: linear-gradient(180deg,
-    rgba(0,0,0,0.7) 0%,
-    rgba(0,0,0,0.4) 40%,
-    rgba(0,0,0,0) 100%
+  height: 185px !important;
+  inset: 0 0 auto 0 !important;
+  margin: 0 !important;
+  background: linear-gradient(180deg, 
+    #0a0a0a 0%, 
+    rgba(10, 10, 10, 0.95) 20%, 
+    rgba(10, 10, 10, 0.7) 48%, 
+    rgba(10, 10, 10, 0.28) 75%, 
+    rgba(10, 10, 10, 0) 100%
   ) !important;
   filter: none !important;
   -webkit-filter: none !important;
   pointer-events: none !important;
   z-index: 1 !important;
-  border-top-left-radius: 20px !important;
-  border-top-right-radius: 20px !important;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
 }
 
-/* ── Dashed side divider lines ── */
+/* Dashed Side Divider Lines */
 .footer-divider-left {
   z-index: 2 !important;
   opacity: 0.35 !important;
   border: none !important;
-  border-left: 1px dashed rgba(0,0,0,0.55) !important;
+  border-left: 1.5px dashed #000000 !important;
   width: 0 !important;
   height: 100% !important;
   position: absolute !important;
   top: 0 !important;
-  left: 20px !important;
+  left: 16px !important;
   bottom: 0 !important;
   pointer-events: none !important;
 }
@@ -649,99 +641,147 @@ input, textarea, select {
   z-index: 2 !important;
   opacity: 0.35 !important;
   border: none !important;
-  border-right: 1px dashed rgba(0,0,0,0.55) !important;
+  border-right: 1.5px dashed #000000 !important;
   width: 0 !important;
   height: 100% !important;
   position: absolute !important;
   top: 0 !important;
-  right: 20px !important;
+  right: 16px !important;
   bottom: 0 !important;
   pointer-events: none !important;
 }
 
-/* ── Ensure content sits above both overlays ── */
-.footer-about-info, .footer-about-avatar, .footer-about-title-wrap, .footer-form-wrap {
+/* Foreground Content inside Green Card */
+.footer-about-info, .footer-about-avatar, .footer-about-title-wrap, .footer-form-wrap, .footer-contact-info, .footer-copyright-info {
   position: relative !important;
   z-index: 3 !important;
 }
 
-/* ── Black text on the bright green surface ── */
+.footer-about-avatar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.footer-avatar-image {
+  border-radius: 999px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border: 1.5px solid #000000 !important;
+  width: 85px !important;
+  height: 58px !important;
+  box-shadow: 0 8px 16px rgba(10, 10, 10, 0.4) !important;
+}
+
 .footer-about-title {
-  color: #f0f0f0 !important;
+  color: #0a0a0a !important;
+  font-size: 2.25rem !important;
   font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 8px !important;
+  text-align: center !important;
 }
 
 .footer-about-description {
-  color: rgba(255,255,255,0.72) !important;
+  color: #333333 !important;
+  font-size: 1rem !important;
+  line-height: 1.45 !important;
+  text-align: center !important;
+  margin-bottom: 0 !important;
 }
 
 .field-title {
-  color: rgba(255,255,255,0.85) !important;
-  font-weight: 500 !important;
+  color: #222222 !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
 }
 
 .footer-input,
 .footer-textarea {
-  background-color: rgba(255,255,255,0.10) !important;
-  border-color: rgba(255,255,255,0.18) !important;
-  color: #f0f0f0 !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 8px !important;
+  color: #0a0a0a !important;
+  font-size: 0.95rem !important;
+  padding: 12px 14px !important;
 }
 
 .footer-input::placeholder,
 .footer-textarea::placeholder {
-  color: rgba(255,255,255,0.38) !important;
+  color: rgba(0, 0, 0, 0.45) !important;
 }
 
 .footer-input:focus,
 .footer-textarea:focus {
-  background-color: rgba(255,255,255,0.16) !important;
-  border-color: rgba(255,255,255,0.4) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: #0a0a0a !important;
   outline: none !important;
 }
 
 .footer-button {
-  background-color: #0a0a0a !important;
-  color: #a4f564 !important;
+  background-color: #111111 !important;
+  color: #ffffff !important;
   border: none !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.02em !important;
-  transition: background 0.2s ease, transform 0.15s ease !important;
+  padding: 12px 24px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+  margin-top: 8px !important;
 }
 
 .footer-button:hover {
-  background-color: #1c1c1c !important;
+  background-color: #222222 !important;
   transform: translateY(-1px) !important;
 }
 
 .footer-divider {
-  border-color: rgba(255,255,255,0.18) !important;
+  border: none !important;
+  border-top: 1.5px dashed rgba(0, 0, 0, 0.35) !important;
+  width: 100% !important;
+  height: 1px !important;
+  margin: 24px 0 !important;
 }
 
 .footer-contact-title {
-  color: rgba(255,255,255,0.55) !important;
+  color: #444444 !important;
+  font-size: 0.88rem !important;
+  text-align: center !important;
 }
 
-.footer-contact-number,
-.contact-mail-title,
-.footer-link,
+.footer-contact-number {
+  color: #0a0a0a !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  text-align: center !important;
+}
+
+.contact-mail-title {
+  color: #0a0a0a !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  text-align: center !important;
+}
+
+.footer-link {
+  color: #333333 !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  margin: 0 8px !important;
+}
+
 .footer-copyright-title,
 .footer-copyright-name,
 .footer-copyright {
-  color: rgba(255,255,255,0.90) !important;
+  color: #0a0a0a !important;
+  font-size: 0.88rem !important;
 }
 
-/* ── Oval avatar ── */
-.footer-avatar-image {
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  object-position: top center !important;
-  border: 2px solid rgba(0,0,0,0.25) !important;
-  width: 76px !important;
-  height: 60px !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.1) inset !important;
-}
 /* Seamless Edge-to-Edge Bottom Zigzag Cut */
 .footer-shape-image {
   position: absolute !important;
@@ -755,7 +795,6 @@ input, textarea, select {
   pointer-events: none !important;
   display: block !important;
 }
-
 /* Compact Logo Marquee Spacing */
 .marquee-track {
   display: flex !important;

@@ -739,8 +739,9 @@ requestAnimationFrame(raf);
   }
 
   function updateActiveNav() {
-    // The trigger line: 45% down from top of viewport
-    const triggerY = window.innerHeight * 0.45;
+    // Trigger when a section's top edge reaches 15% from the top of the viewport
+    // Lower % = section must scroll further up before it becomes "active"
+    const triggerY = window.innerHeight * 0.15;
 
     let activeId = entries[0].id; // default to hero
 

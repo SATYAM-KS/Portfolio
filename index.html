@@ -304,8 +304,8 @@
    ========================================================================== */
 
 @keyframes navGlowPulse {
-  0%, 100% { box-shadow: 0 0 12px rgba(255,255,255,0.35), inset 0 0 8px rgba(255,255,255,0.12); }
-  50% { box-shadow: 0 0 28px rgba(255,255,255,0.65), inset 0 0 14px rgba(255,255,255,0.25); }
+  0%, 100% { box-shadow: 0 0 6px rgba(255,255,255,0.18), inset 0 0 4px rgba(255,255,255,0.07); }
+  50% { box-shadow: 0 0 12px rgba(255,255,255,0.3), inset 0 0 6px rgba(255,255,255,0.12); }
 }
 
 @media screen and (min-width: 768px) {
@@ -424,25 +424,28 @@
   stroke: currentColor !important;
 }
 
-/* Active Section – White Glow Pulse */
-.navbar-item.active-nav,
-.navbar-item.w--current {
-  background: rgba(255, 255, 255, 0.14) !important;
-  border: 1px solid rgba(255, 255, 255, 0.55) !important;
-  animation: navGlowPulse 2.5s ease-in-out infinite !important;
+/* Active Section – Minimal White Glow (only .active-nav, we override w--current below) */
+.navbar-item.active-nav {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  animation: navGlowPulse 3s ease-in-out infinite !important;
 }
-.navbar-item.active-nav .navbar-icon,
-.navbar-item.w--current .navbar-icon {
+.navbar-item.active-nav .navbar-icon {
   opacity: 1 !important;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) brightness(1.3) !important;
-  transform: scale(1.08) !important;
+  filter: brightness(1.15) !important;
+  transform: scale(1.06) !important;
 }
-.navbar-item.active-nav .navbar-svg-icon,
-.navbar-item.w--current .navbar-svg-icon {
+.navbar-item.active-nav .navbar-svg-icon {
   opacity: 1 !important;
   color: #ffffff !important;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.9)) !important;
-  transform: scale(1.1) !important;
+  transform: scale(1.06) !important;
+}
+/* Neutralise Webflow's w--current so it never double-glows */
+.navbar-item.w--current {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  animation: none !important;
 }
 
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
@@ -711,7 +714,7 @@ requestAnimationFrame(raf);
 
 
 <script>
-// Navbar Active Section Scroll Spy & White Glow Indicator
+// Navbar Active Section Scroll Spy – single active item only
 (function initNavbarScrollSpy() {
   const navItems = document.querySelectorAll('.navbar-item');
   if (!navItems.length) return;
@@ -719,36 +722,48 @@ requestAnimationFrame(raf);
   const sectionIds = ['hero', 'work', 'about', 'service', 'contact'];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
-  function updateActiveNav() {
-    const scrollPos = window.scrollY + window.innerHeight * 0.35;
-    let currentId = 'hero';
-
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        currentId = section.id;
-      }
+  // Strip Webflow's w--current from ALL nav items immediately so it never conflicts
+  function clearAll() {
+    navItems.forEach(item => {
+      item.classList.remove('active-nav', 'w--current');
     });
+  }
 
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 90) {
+  function updateActiveNav() {
+    // Use 40% down the viewport as the trigger point
+    const scrollPos = window.scrollY + window.innerHeight * 0.4;
+    let currentId = sectionIds[0];
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (scrollPos >= sections[i].offsetTop) {
+        currentId = sections[i].id;
+        break;
+      }
+    }
+
+    // Snap to contact when near bottom
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 80) {
       currentId = 'contact';
     }
 
+    clearAll();
+
+    // Set exactly ONE active item
     navItems.forEach(item => {
-      const href = item.getAttribute('href') || '';
-      if (href.endsWith('#' + currentId) || href === '/#' + currentId || (currentId === 'hero' && (href === '/' || href === '/#hero' || href === '#hero'))) {
+      const href = (item.getAttribute('href') || '').replace(/^\.\.\//, '/');
+      const matchesSection = href === '/#' + currentId ||
+        href === '#' + currentId ||
+        (currentId === 'hero' && (href === '/' || href === '/#hero'));
+      if (matchesSection) {
         item.classList.add('active-nav');
-      } else {
-        item.classList.remove('active-nav');
       }
     });
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   window.addEventListener('resize', updateActiveNav);
-  document.addEventListener('DOMContentLoaded', updateActiveNav);
-  setTimeout(updateActiveNav, 100);
+  window.addEventListener('DOMContentLoaded', updateActiveNav);
+  setTimeout(updateActiveNav, 150);
 })();
 </script>
 

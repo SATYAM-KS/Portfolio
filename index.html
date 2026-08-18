@@ -2211,18 +2211,18 @@ input, textarea, select {
 // Precision Section-Mapped Viewport Scroll Spy
 (function initPrecisionScrollSpy() {
   const navItems = document.querySelectorAll('.navbar .navbar-item');
-  if (!navItems || navItems.length < 5) return;
+  if (!navItems || navItems.length === 0) return;
 
   function getSectionList() {
     return [
-      { el: document.querySelector('.hero-section'), navIndex: 0 },       // 0: Home
-      { el: document.querySelector('.work-section'), navIndex: 1 },       // 1: Work
-      { el: document.querySelector('.about-section'), navIndex: 2 },      // 2: About
-      { el: document.querySelector('.service-section'), navIndex: 3 },    // 3: Skills (Active throughout .service-section)
-      { el: document.querySelector('.timeline-section'), navIndex: 2 },   // Career Timeline -> About
-      { el: document.querySelector('.award-section'), navIndex: 2 },      // Proud Moments -> About
-      { el: document.querySelector('.social-section'), navIndex: 2 },     // Connect With Me -> About
-      { el: document.querySelector('footer.footer'), navIndex: 4 }        // 4: Contact
+      { el: document.querySelector('.hero-section'), navIndex: 0 },       // 0: Home glows
+      { el: document.querySelector('.work-section'), navIndex: 1 },       // 1: Work glows
+      { el: document.querySelector('.about-section'), navIndex: 2 },      // 2: About glows
+      { el: document.querySelector('.service-section'), navIndex: 3 },    // 3: Skills glows throughout .service-section
+      { el: document.querySelector('.timeline-section'), navIndex: -1 },   // Career Timeline -> Nothing glows
+      { el: document.querySelector('.award-section'), navIndex: -1 },      // Proud Moments -> Nothing glows
+      { el: document.querySelector('.social-section'), navIndex: -1 },     // Connect With Me -> Nothing glows
+      { el: document.querySelector('footer.footer'), navIndex: -1 }        // Contact / Footer -> Nothing glows
     ].filter(item => item.el !== null);
   }
 
@@ -2230,23 +2230,16 @@ input, textarea, select {
     const sections = getSectionList();
     const scrollY = window.scrollY || window.pageYOffset;
     const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
 
-    // 1. Top of page
-    if (scrollY < 120) {
+    // 1. Top of page -> Home glows
+    if (scrollY < 100) {
       setActive(0);
       return;
     }
 
-    // 2. Bottom of page (Contact / Footer)
-    if ((scrollY + windowHeight) >= (docHeight - 100)) {
-      setActive(4);
-      return;
-    }
-
-    // 3. Focal line at 40% of viewport
+    // 2. Focal line at 40% of viewport
     const focalY = windowHeight * 0.40;
-    let targetIndex = 0;
+    let targetIndex = -1;
 
     for (let i = sections.length - 1; i >= 0; i--) {
       const sec = sections[i];
@@ -2262,7 +2255,7 @@ input, textarea, select {
 
   function setActive(index) {
     navItems.forEach((item, i) => {
-      if (i === index) {
+      if (index !== -1 && i === index) {
         item.classList.add('active-nav', 'w--current');
       } else {
         item.classList.remove('active-nav', 'w--current');

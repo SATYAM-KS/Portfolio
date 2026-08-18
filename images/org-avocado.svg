@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 80" height="34" width="30" fill="none">
-  <g fill="#ffffff">
-    <!-- Avocado stem/leaf -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 40" height="32" fill="none">
+  <!-- Avocado Icon -->
+  <g transform="translate(2, 1) scale(0.46)" fill="#ffffff">
     <path d="M 35 2 C 37 4, 39 8, 35 12 C 33 9, 33 5, 35 2 Z"/>
-    <!-- Avocado pear body -->
     <path d="M 35 10 C 26 10, 20 22, 16 38 C 10 60, 16 78, 35 78 C 54 78, 60 60, 54 38 C 50 22, 44 10, 35 10 Z"/>
-    <!-- Dial center cutout -->
     <circle cx="35" cy="52" r="12" fill="#0c0d0e"/>
-    <!-- Dashed ring inside dial -->
     <circle cx="35" cy="52" r="8" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="3 3" fill="none"/>
   </g>
+  <!-- Wordmark 'StudySync' -->
+  <text x="44" y="27" font-family="Inter, -apple-system, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.03em" fill="#ffffff">StudySync</text>
 </svg>

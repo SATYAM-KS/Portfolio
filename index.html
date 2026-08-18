@@ -714,64 +714,76 @@ requestAnimationFrame(raf);
 
 
 <script>
-// Navbar Active Section Scroll Spy – single active item, getBoundingClientRect based
-(function initNavbarScrollSpy() {
-  const navItems = document.querySelectorAll('.navbar-item');
-  if (!navItems.length) return;
+// Flawless Direct-Index Viewport Scroll Spy
+(function initFlawlessScrollSpy() {
+  const navItems = document.querySelectorAll('.navbar .navbar-item');
+  if (!navItems || navItems.length < 5) return;
 
-  // Map each nav item to the section ID it points to
-  const navMap = [
-    { id: 'hero',    hrefs: ['/', '/#hero', '#hero'] },
-    { id: 'work',    hrefs: ['/#work', '#work'] },
-    { id: 'about',   hrefs: ['/#about', '#about'] },
-    { id: 'service', hrefs: ['/#service', '#service'] },
-    { id: 'contact', hrefs: ['#contact', '/#contact'] }
+  const sectionSelectors = [
+    '.hero-section',     // 0: Home
+    '.work-section',     // 1: Work
+    '.about-section',    // 2: About
+    '.service-section',  // 3: Skills
+    'footer.footer'      // 4: Contact
   ];
 
-  // Grab only the sections that actually exist in the DOM
-  const entries = navMap.map(entry => ({
-    ...entry,
-    el: document.getElementById(entry.id)
-  })).filter(e => e.el);
-
-  function clearAll() {
-    navItems.forEach(item => item.classList.remove('active-nav', 'w--current'));
+  function getSectionElements() {
+    return sectionSelectors.map(sel => document.querySelector(sel));
   }
 
   function updateActiveNav() {
-    // Trigger when a section's top edge reaches 15% from the top of the viewport
-    // Lower % = section must scroll further up before it becomes "active"
-    const triggerY = window.innerHeight * 0.15;
+    const sections = getSectionElements();
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
 
-    let activeId = entries[0].id; // default to hero
+    // 1. If at very top of page (first 150px), always Hero
+    if (scrollY < 150) {
+      setActive(0);
+      return;
+    }
 
-    // Walk sections top-to-bottom; last one whose top is ABOVE triggerY wins
-    for (const entry of entries) {
-      const rect = entry.el.getBoundingClientRect();
-      if (rect.top <= triggerY) {
-        activeId = entry.id;
+    // 2. If scrolled near the very bottom (within 120px of bottom), always Contact
+    if ((scrollY + windowHeight) >= (docHeight - 120)) {
+      setActive(4);
+      return;
+    }
+
+    // 3. Focal line at 45% of viewport
+    const focalY = windowHeight * 0.45;
+    let activeIndex = 0;
+
+    // Check sections in reverse (from bottom up)
+    // If a section's top is above the focal line, it is the active one!
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = sections[i];
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= focalY) {
+          activeIndex = i;
+          break;
+        }
       }
     }
 
-    // Force contact when user is at the very bottom of the page
-    const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 60;
-    if (atBottom) activeId = 'contact';
+    setActive(activeIndex);
+  }
 
-    clearAll();
-
-    navItems.forEach(item => {
-      const href = (item.getAttribute('href') || '').replace(/^\.\.\//, '/');
-      const match = navMap.find(e => e.id === activeId);
-      if (match && match.hrefs.includes(href)) {
+  function setActive(index) {
+    navItems.forEach((item, i) => {
+      if (i === index) {
         item.classList.add('active-nav');
+      } else {
+        item.classList.remove('active-nav', 'w--current');
       }
     });
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   window.addEventListener('resize', updateActiveNav);
-  window.addEventListener('DOMContentLoaded', updateActiveNav);
-  setTimeout(updateActiveNav, 200);
+  document.addEventListener('DOMContentLoaded', updateActiveNav);
+  setTimeout(updateActiveNav, 100);
+  setTimeout(updateActiveNav, 500);
 })();
 </script>
 

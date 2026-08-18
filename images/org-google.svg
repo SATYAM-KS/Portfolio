@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 40" height="32" fill="none">
+  <g fill="#ffffff">
+    <!-- Minimalist pure white Google 'G' icon -->
+    <path d="M 20 4 C 11.2 4, 4 11.2, 4 20 C 4 28.8, 11.2 36, 20 36 C 29 36, 35 29.5, 35.8 21.5 L 20 21.5 L 20 17 L 39.8 17 C 40 18, 40 19.2, 40 20.5 C 40 31.8, 31.8 40, 20 40 C 9 40, 0 31, 0 20 C 0 9, 9 0, 20 0 C 26 0, 31.2 2.2, 35.2 6 L 31.6 9.6 C 28.6 6.8, 24.8 5.2, 20 5.2 Z" transform="translate(4, 0) scale(0.85)"/>
+    <!-- Wordmark 'Google' -->
+    <text x="46" y="27" font-family="Product Sans, Inter, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.02em" fill="#ffffff">Google</text>
+  </g>
+</svg>

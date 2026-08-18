@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" height="32" fill="none">
+  <g fill="#ffffff">
+    <!-- Vault Icon (Upper solid dome + lower arc) -->
+    <path d="M 6 18 C 6 10, 12 4, 20 4 C 28 4, 34 10, 34 18 Z"/>
+    <path d="M 7 23 C 9 30, 14 34, 20 34 C 26 34, 31 30, 33 23" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Wordmark 'Vault' -->
+    <text x="44" y="28" font-family="Inter, -apple-system, sans-serif" font-size="25" font-weight="800" letter-spacing="-0.02em" fill="#ffffff">Vault</text>
+  </g>
+</svg>

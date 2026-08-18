@@ -1,0 +1,220 @@
+/* Lenis smooth scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Ensure font families */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0b0c0e;
+  color: #a1a1aa;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .hero-main-title, .hero-inner-title, .about-title, .grid-title, .service-main-title, .timeline-main-title, .award-main-title, .review-title, .pricing-title, .blog-main-title, .social-main-title, .footer-about-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.type-text, .type-text.award-tag, .type-text.social-tag {
+  font-family: 'Covered By Your Grace', cursive !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Reset any Webflow hidden classes that depend on IX */
+[style*="opacity:0"], [style*="opacity: 0"] {
+  opacity: 1 !important;
+}
+
+/* Back button */
+.back-button {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 999;
+  text-decoration: none;
+}
+
+.back-button-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26, 27, 30, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.back-button-link:hover {
+  background: rgba(40, 42, 48, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+.back-button-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Infinite Marquee Styles */
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-reverse 35s linear infinite;
+}
+
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Navbar active states and tooltips */
+.navbar-item {
+  position: relative;
+}
+
+.navbar-tooltip {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-item:hover .navbar-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Work slider / carousel */
+.work-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.work-slider-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.work-slide-item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+/* Timeline expandable */
+.timeline-content-expanded {
+  height: auto !important;
+  max-height: 2000px !important;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.timeline-content-collapsed {
+  height: auto !important;
+  max-height: 440px !important;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.timeline-dropdown {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Work detail rich text formatting */
+.work-detail-rich-text, .blog-rich-text {
+  color: #a1a1aa;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.work-detail-rich-text p, .blog-rich-text p {
+  margin-bottom: 20px;
+}
+
+.work-detail-rich-text h4, .work-detail-rich-text h5, .blog-rich-text h4, .blog-rich-text h5 {
+  color: #fff;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.work-detail-rich-text ul, .blog-rich-text ul {
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.work-detail-rich-text li, .blog-rich-text li {
+  margin-bottom: 8px;
+}
+
+/* Pricing toggle transition */
+.pricing-toggle-icon {
+  transition: transform 0.25s ease;
+}
+
+/* Cursor pointers on interactive elements */
+.button, .button-pricing, .button-white, .slider-arrow, .pricing-toggle-button, .timeline-dropdown {
+  cursor: pointer;
+}

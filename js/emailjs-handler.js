@@ -92,13 +92,16 @@ const EMAILJS_CONFIG = {
         if (successDiv) {
           successDiv.style.display = 'block';
           successDiv.innerHTML = `
-            <div class="success-message-title" style="color: #0c0d0e; font-weight: 700; font-size: 1.15rem; margin-bottom: 6px;">
-              Thank you, ${name}!
-            </div>
-            <p style="color: #222; font-size: 0.9rem; margin: 0; line-height: 1.4;">
-              A confirmation email has been sent directly to <strong>${email}</strong>. I will get back to you within 24 hours.
-            </p>
-          `;
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a4f564" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <div class="success-message-title" style="color: #ffffff !important; font-weight: 700; font-size: 1.3rem; margin: 0; letter-spacing: -0.01em;">
+        Thank you, ${name}!
+      </div>
+    </div>
+    <p style="color: #e5e5e5 !important; font-size: 0.95rem; margin: 0; line-height: 1.55; text-align: center;">
+      A confirmation email has been sent directly to <strong style="color: #a4f564 !important; font-weight: 600;">${email}</strong>. I'll get back to you within 24 hours.
+    </p>
+  `;
         }
         form.reset();
       } catch (err) {

@@ -467,6 +467,14 @@ html {
   scroll-margin-top: 14vh !important;
 }
 
+
+/* Anchor scroll alignment */
+#work, #about, #service, #contact,
+.offset-fix, .footer-offset-fix,
+.grid-work, .about-content, .service-section .section-title {
+  scroll-margin-top: 32px !important;
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {
@@ -608,10 +616,45 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// Smooth Anchor Click Navigation with 12-15% offset higher up
+// Smooth Anchor Click Navigation: Lands clean at the top of each section (Work, About, Skills, Contact)
 document.addEventListener('DOMContentLoaded', () => {
+  function getAnchorTarget(targetId) {
+    if (targetId === 'work') {
+      return document.querySelector('.grid-work') || document.querySelector('.work-section .container-small') || document.getElementById('work');
+    }
+    if (targetId === 'about') {
+      return document.querySelector('.about-top') || document.querySelector('.about-content') || document.getElementById('about');
+    }
+    if (targetId === 'service') {
+      return document.querySelector('.service-section .section-title') || document.querySelector('.service-main-title') || document.getElementById('service');
+    }
+    if (targetId === 'contact') {
+      return document.querySelector('.footer-about-title-wrap') || document.querySelector('.footer-about-info') || document.getElementById('contact');
+    }
+    return document.getElementById(targetId);
+  }
+
+  function smoothScrollTo(targetId) {
+    if (!targetId || targetId === 'hero') {
+      if (window.lenis) lenis.scrollTo(0, { duration: 1.1 });
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const targetEl = getAnchorTarget(targetId);
+    if (targetEl) {
+      if (window.lenis) {
+        lenis.scrollTo(targetEl, {
+          offset: -32,
+          duration: 1.1
+        });
+      } else {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
   const anchorLinks = document.querySelectorAll('a[href^="#"], a[href^="/#"]');
-  
   anchorLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       const rawHref = this.getAttribute('href');
@@ -620,32 +663,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetId = rawHref.replace(/^(/?#)/, '');
       if (!targetId) return;
 
-      // Special case for hero/home
-      if (targetId === 'hero' || targetId === '') {
-        e.preventDefault();
-        lenis.scrollTo(0, { duration: 1.2 });
-        return;
-      }
-
-      // Map target ID to best container
-      let targetEl = null;
-      if (targetId === 'work') targetEl = document.querySelector('.work-section') || document.getElementById('work');
-      else if (targetId === 'about') targetEl = document.querySelector('.about-section') || document.getElementById('about');
-      else if (targetId === 'service') targetEl = document.querySelector('.service-section') || document.getElementById('service');
-      else if (targetId === 'contact') targetEl = document.querySelector('footer.footer') || document.getElementById('contact');
-      else targetEl = document.getElementById(targetId);
-
-      if (targetEl) {
-        e.preventDefault();
-        // 12-15% of viewport height offset so section lands a bit higher up with full view
-        const offsetPx = -Math.round(window.innerHeight * 0.12);
-        lenis.scrollTo(targetEl, {
-          offset: offsetPx,
-          duration: 1.2
-        });
-      }
+      e.preventDefault();
+      smoothScrollTo(targetId);
     });
   });
+
+  // Handle direct page load with hash in URL
+  if (window.location.hash) {
+    const initHash = window.location.hash.replace('#', '');
+    setTimeout(() => {
+      smoothScrollTo(initHash);
+    }, 350);
+  }
 });
 </script>
 <script>

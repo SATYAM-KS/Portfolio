@@ -1970,6 +1970,45 @@ input, textarea, select {
   }
 }
 
+/* ==========================================================================
+   NAVBAR – Active Section Minimal Clean Glow
+   ========================================================================== */
+
+.navbar-item {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid transparent !important;
+}
+
+.navbar-item.active-nav,
+.navbar-item.active-nav.w--current {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.28), inset 0 0 8px rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+.navbar-item.active-nav .navbar-icon,
+.navbar-item.active-nav.w--current .navbar-icon {
+  opacity: 1 !important;
+  filter: brightness(1.25) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)) !important;
+  transform: scale(1.08) !important;
+}
+
+.navbar-item.active-nav .navbar-svg-icon,
+.navbar-item.active-nav.w--current .navbar-svg-icon {
+  opacity: 1 !important;
+  color: #ffffff !important;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)) !important;
+  transform: scale(1.08) !important;
+}
+
+/* Neutralise default w--current if not active-nav */
+.navbar-item:not(.active-nav).w--current {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {
@@ -2310,7 +2349,7 @@ input, textarea, select {
 <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css">
 
 <script>
-// Precision Section-Mapped Viewport Scroll Spy
+// Precision Section-Mapped Viewport Scroll Spy with Connect With Me as Contact
 (function initPrecisionScrollSpy() {
   const navItems = document.querySelectorAll('.navbar .navbar-item');
   if (!navItems || navItems.length === 0) return;
@@ -2323,8 +2362,8 @@ input, textarea, select {
       { el: document.querySelector('.service-section'), navIndex: 3 },    // 3: Skills glows throughout .service-section
       { el: document.querySelector('.timeline-section'), navIndex: -1 },   // Career Timeline -> Nothing glows
       { el: document.querySelector('.award-section'), navIndex: -1 },      // Proud Moments -> Nothing glows
-      { el: document.querySelector('.social-section'), navIndex: -1 },     // Connect With Me -> Nothing glows
-      { el: document.querySelector('footer.footer'), navIndex: -1 }        // Contact / Footer -> Nothing glows
+      { el: document.querySelector('.social-section'), navIndex: 4 },     // Connect With Me -> Contact glows!
+      { el: document.querySelector('footer.footer'), navIndex: 4 }        // Footer -> Contact glows!
     ].filter(item => item.el !== null);
   }
 
@@ -2332,6 +2371,7 @@ input, textarea, select {
     const sections = getSectionList();
     const scrollY = window.scrollY || window.pageYOffset;
     const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
 
     // 1. Top of page -> Home glows
     if (scrollY < 100) {
@@ -2339,7 +2379,13 @@ input, textarea, select {
       return;
     }
 
-    // 2. Focal line at 40% of viewport
+    // 2. Near bottom of page -> Contact glows
+    if ((scrollY + windowHeight) >= (docHeight - 120)) {
+      setActive(4);
+      return;
+    }
+
+    // 3. Focal line at 40% of viewport
     const focalY = windowHeight * 0.40;
     let targetIndex = -1;
 
@@ -2358,9 +2404,9 @@ input, textarea, select {
   function setActive(index) {
     navItems.forEach((item, i) => {
       if (index !== -1 && i === index) {
-        item.classList.add('active-nav', 'w--current');
+        item.classList.add('active-nav');
       } else {
-        item.classList.remove('active-nav', 'w--current');
+        item.classList.remove('active-nav');
       }
     });
   }

@@ -860,7 +860,7 @@ input, textarea, select {
 .footer-content {
   position: relative !important;
   overflow: hidden !important;
-  border-radius: 28px !important;
+  border-radius: 0 !important; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border: none !important; outline: none !important; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border: none !important; outline: none !important;
 }
 
 .footer-contact-info {
@@ -987,7 +987,7 @@ input, textarea, select {
 @media screen and (max-width: 480px) {
   .footer-content {
     padding: 3rem 1.25rem 2rem !important;
-    border-radius: 20px !important;
+    border-radius: 0 !important; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border: none !important; outline: none !important; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border: none !important; outline: none !important;
   }
   .footer-copyright-info {
     flex-direction: row !important;
@@ -1024,7 +1024,7 @@ input, textarea, select {
   }
   .footer-content {
     padding: 3rem 1.25rem 2rem !important;
-    border-radius: 24px !important;
+    border-radius: 0 !important; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border: none !important; outline: none !important; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border: none !important; outline: none !important;
   }
   .footer-about-info {
     display: flex !important;
@@ -1230,6 +1230,48 @@ input, textarea, select {
   .hero-scroll-arrow svg {
     width: 12px !important;
     height: 12px !important;
+  }
+}
+
+
+/* ==========================================================================
+   STRICT NO-BORDER-RADIUS OVERRIDE FOR FOOTER CARD EMERGENCE
+   ========================================================================== */
+.footer-content, 
+.footer-gradient-shadow {
+  border-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border: none !important;
+  outline: none !important;
+}
+@media screen and (max-width: 991px) {
+  .footer-content, .footer-gradient-shadow {
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer-content, .footer-gradient-shadow {
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer-content, .footer-gradient-shadow {
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border: none !important;
+    outline: none !important;
   }
 }
 

@@ -71,32 +71,103 @@
 }
 
 
-/* Navbar Perfect Screen Centering & White Glow */
-.navbar {
-  position: fixed !important;
-  top: 50% !important;
-  left: 20px !important;
-  transform: translateY(-50%) !important;
-  height: auto !important;
-  inset: auto auto auto 20px !important;
-  z-index: 9999 !important;
+
+
+
+/* ==========================================================================
+   PERFECT NAVBAR VERTICAL CENTERING (IN HEIGHT) & ACTIVE WHITE GLOW
+   ========================================================================== */
+@media screen and (min-width: 768px) {
+  .navbar {
+    position: fixed !important;
+    top: 50% !important;
+    left: 20px !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    width: auto !important;
+    min-height: 0 !important;
+    max-height: 90vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    inset: auto auto auto 20px !important;
+  }
+  .navbar-menu {
+    height: auto !important;
+    width: auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: rgba(14, 15, 18, 0.8) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+    border-radius: 26px !important;
+    padding: 10px 8px !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    top: auto !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 95% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    inset: auto auto 20px 50% !important;
+  }
+  .navbar-menu {
+    height: auto !important;
+    width: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: rgba(14, 15, 18, 0.88) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65) !important;
+    border-radius: 999px !important;
+    padding: 6px 12px !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+  .navbar-tooltip {
+    display: none !important;
+  }
+}
+
+.navbar-item {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 16px !important;
+  border: 1px solid transparent !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-}
-.navbar-menu {
-  background: rgba(14, 15, 18, 0.75) !important;
-  backdrop-filter: blur(24px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-  border-radius: 24px !important;
-  padding: 8px !important;
-  gap: 8px !important;
-}
-.navbar-item {
-  border-radius: 16px !important;
-  border: 1px solid transparent !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   position: relative !important;
 }
@@ -104,21 +175,30 @@
   background-color: rgba(255, 255, 255, 0.08) !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
 }
+.navbar-icon-wrap {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
 .navbar-item .navbar-icon {
+  opacity: 0.55 !important;
   transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease !important;
 }
 
 /* Active Section Glowing White Light */
 .navbar-item.active-nav,
 .navbar-item.w--current {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.45), inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
 }
 .navbar-item.active-nav .navbar-icon,
 .navbar-item.w--current .navbar-icon {
   opacity: 1 !important;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) brightness(1.2) !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) brightness(1.25) !important;
   transform: scale(1.08) !important;
 }
 

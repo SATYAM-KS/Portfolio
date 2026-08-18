@@ -2118,6 +2118,135 @@ input, textarea, select {
   box-shadow: none !important;
 }
 
+/* ==========================================================================
+   FOOTER MOBILE REFINEMENT (Small Screens Only – PC Size Untouched)
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding-top: 24px !important;
+    padding-bottom: 90px !important; /* Space above mobile bottom dock */
+    overflow: visible !important;
+  }
+
+  /* Compact Proportionate Background Bar on Mobile */
+  .footer-decoration {
+    top: -16px !important;
+    padding: 0 12px !important;
+  }
+
+  .footer-decoration .inner-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .footer-shape {
+    border-radius: 14px !important;
+    padding: 5px !important;
+    box-shadow: inset 0 -2px 4px 0 #000000, 0 4px 14px 0 rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .footer-shape-inner {
+    border-radius: 8px !important;
+    height: 32px !important;
+  }
+
+  /* Main Green Card on Mobile */
+  .footer-content {
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    padding: 2.25rem 1.25rem 1.75rem !important;
+    gap: 20px !important;
+    grid-row-gap: 20px !important;
+  }
+
+  /* Compact Top Shadow on Mobile */
+  .footer-gradient-shadow {
+    height: 110px !important;
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  /* Avatar & Header on Mobile */
+  .footer-about-info {
+    gap: 14px !important;
+    grid-row-gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .footer-avatar-image {
+    width: 68px !important;
+    height: 48px !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .footer-about-title {
+    font-size: clamp(1.6rem, 6.5vw, 1.95rem) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .footer-about-description {
+    font-size: 0.88rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Form Inputs on Mobile */
+  .footer-input,
+  .footer-textarea {
+    font-size: 0.92rem !important;
+    padding: 10px 12px !important;
+  }
+
+  .footer-button {
+    padding: 10px 20px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Side Dashed Lines on Mobile */
+  .footer-divider-left {
+    left: 8px !important;
+  }
+
+  .footer-divider-right {
+    right: 8px !important;
+  }
+
+  .footer-divider {
+    margin: 16px 0 !important;
+  }
+
+  .contact-mail-title {
+    font-size: clamp(1.1rem, 4.5vw, 1.3rem) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-decoration {
+    top: -14px !important;
+    padding: 0 8px !important;
+  }
+
+  .footer-shape {
+    padding: 4px !important;
+    border-radius: 12px !important;
+  }
+
+  .footer-shape-inner {
+    height: 28px !important;
+    border-radius: 7px !important;
+  }
+
+  .footer-content {
+    padding: 2rem 1rem 1.5rem !important;
+  }
+
+  .footer-gradient-shadow {
+    height: 95px !important;
+  }
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {

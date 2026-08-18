@@ -295,6 +295,58 @@
   color: #ffffff !important;
 }
 
+
+/* Navbar Perfect Screen Centering & White Glow */
+.navbar {
+  position: fixed !important;
+  top: 50% !important;
+  left: 20px !important;
+  transform: translateY(-50%) !important;
+  height: auto !important;
+  inset: auto auto auto 20px !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.navbar-menu {
+  background: rgba(14, 15, 18, 0.75) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  border-radius: 24px !important;
+  padding: 8px !important;
+  gap: 8px !important;
+}
+.navbar-item {
+  border-radius: 16px !important;
+  border: 1px solid transparent !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+}
+.navbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.navbar-item .navbar-icon {
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease !important;
+}
+
+/* Active Section Glowing White Light */
+.navbar-item.active-nav,
+.navbar-item.w--current {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.25) !important;
+}
+.navbar-item.active-nav .navbar-icon,
+.navbar-item.w--current .navbar-icon {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) brightness(1.2) !important;
+  transform: scale(1.08) !important;
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {
@@ -550,5 +602,48 @@ requestAnimationFrame(raf);
 <!-- EmailJS Form Integration -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript" src="js/emailjs-handler.js"></script>
+
+
+<script>
+// Navbar Active Section Scroll Spy & White Glow Indicator
+(function initNavbarScrollSpy() {
+  const navItems = document.querySelectorAll('.navbar-item');
+  if (!navItems.length) return;
+
+  const sectionIds = ['hero', 'work', 'about', 'service', 'contact'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + window.innerHeight * 0.35;
+    let currentId = 'hero';
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.id;
+      }
+    });
+
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 90) {
+      currentId = 'contact';
+    }
+
+    navItems.forEach(item => {
+      const href = item.getAttribute('href') || '';
+      if (href.endsWith('#' + currentId) || href === '/#' + currentId || (currentId === 'hero' && (href === '/' || href === '/#hero' || href === '#hero'))) {
+        item.classList.add('active-nav');
+      } else {
+        item.classList.remove('active-nav');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+  document.addEventListener('DOMContentLoaded', updateActiveNav);
+  setTimeout(updateActiveNav, 100);
+})();
+</script>
 
 </body></html>

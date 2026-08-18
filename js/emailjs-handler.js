@@ -14,9 +14,9 @@
  */
 
 const EMAILJS_CONFIG = {
-  publicKey: "YOUR_PUBLIC_KEY",   // From EmailJS Dashboard > Account > Public Key
-  serviceId: "YOUR_SERVICE_ID",   // From EmailJS Dashboard > Email Services
-  templateId: "YOUR_TEMPLATE_ID"  // From EmailJS Dashboard > Email Templates
+  publicKey: "tLbdllvmFDU2XM2B1",
+  serviceId: "service_3t7gfum",
+  templateId: "template_m6tqwmq"
 };
 
 (function initVisitorEmailIntegration() {

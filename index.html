@@ -448,6 +448,25 @@
   animation: none !important;
 }
 
+
+/* 10-15% Top Breathing Room for Anchor Scrolling */
+html {
+  scroll-padding-top: 14vh !important;
+}
+.hero-section,
+.work-section,
+.about-section,
+.service-section,
+.timeline-section,
+.award-section,
+.social-section,
+.footer,
+.offset-fix,
+.footer-offset-fix,
+#hero, #work, #about, #service, #timeline, #award, #social, #contact {
+  scroll-margin-top: 14vh !important;
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {
@@ -575,21 +594,59 @@
 <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css">
 
 <script>
-// Initialize Lenis
+// Initialize Lenis Smooth Scroll with 12-15% Top Offset for Anchor Clicks
 const lenis = new Lenis({
   smooth: true,
-  lerp: .1,
+  lerp: 0.1,
   wheelMultiplier: 1,
   infinite: false,
 });
 
-// Use requestAnimationFrame to continuously update the scroll
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
 }
-
 requestAnimationFrame(raf);
+
+// Smooth Anchor Click Navigation with 12-15% offset higher up
+document.addEventListener('DOMContentLoaded', () => {
+  const anchorLinks = document.querySelectorAll('a[href^="#"], a[href^="/#"]');
+  
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const rawHref = this.getAttribute('href');
+      if (!rawHref || rawHref === '#' || rawHref === '/#') return;
+      
+      const targetId = rawHref.replace(/^(/?#)/, '');
+      if (!targetId) return;
+
+      // Special case for hero/home
+      if (targetId === 'hero' || targetId === '') {
+        e.preventDefault();
+        lenis.scrollTo(0, { duration: 1.2 });
+        return;
+      }
+
+      // Map target ID to best container
+      let targetEl = null;
+      if (targetId === 'work') targetEl = document.querySelector('.work-section') || document.getElementById('work');
+      else if (targetId === 'about') targetEl = document.querySelector('.about-section') || document.getElementById('about');
+      else if (targetId === 'service') targetEl = document.querySelector('.service-section') || document.getElementById('service');
+      else if (targetId === 'contact') targetEl = document.querySelector('footer.footer') || document.getElementById('contact');
+      else targetEl = document.getElementById(targetId);
+
+      if (targetEl) {
+        e.preventDefault();
+        // 12-15% of viewport height offset so section lands a bit higher up with full view
+        const offsetPx = -Math.round(window.innerHeight * 0.12);
+        lenis.scrollTo(targetEl, {
+          offset: offsetPx,
+          duration: 1.2
+        });
+      }
+    });
+  });
+});
 </script>
 <script>
 // Interactive Minimal White Stars Canvas for Hero

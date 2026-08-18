@@ -1127,6 +1127,68 @@ input, textarea, select {
   }
 }
 
+/* ==========================================================================
+   FIXES: Full Width Gradient Shadow & Clean Timeline Show All
+   ========================================================================== */
+
+/* 1. Full-Width Seamless Black Gradient Flow on Footer & Hero */
+.footer-gradient-shadow {
+  position: absolute !important;
+  top: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 200px !important;
+  inset: -2px 0 auto 0 !important;
+  background: linear-gradient(180deg, #0a0a0a 0%, rgba(10, 10, 10, 0.88) 35%, rgba(10, 10, 10, 0) 100%) !important;
+  filter: blur(10px) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  border-top-left-radius: inherit !important;
+  border-top-right-radius: inherit !important;
+  overflow: hidden !important;
+}
+
+.hero-gradient-shadow {
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 200px !important;
+  inset: auto 0 -2px 0 !important;
+  background: linear-gradient(0deg, #0a0a0a 0%, rgba(10, 10, 10, 0.88) 35%, rgba(10, 10, 10, 0) 100%) !important;
+  filter: blur(10px) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.footer-shape-image {
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  object-fit: cover !important;
+}
+
+/* 2. Hide Misplaced Lone Dot in Front of Show All Button */
+.grid-timeline-info-copy {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin-top: 24px !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+}
+.grid-timeline-info-copy .timeline-dots-wrap,
+.grid-timeline-info-copy .empty-space {
+  display: none !important;
+}
+.grid-timeline-info-copy .timeline-dropdown {
+  margin: 0 !important;
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {

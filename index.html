@@ -1868,6 +1868,108 @@ input, textarea, select {
   }
 }
 
+/* ==========================================================================
+   CAREER TIMELINE – RESPONSIVE HEIGHT & DIVIDER FIX
+   ========================================================================== */
+
+/* Ensure the divider stays behind and stops before the Show All button */
+.timeline-divider {
+  border: none !important;
+  border-left: 1px dashed rgba(255, 255, 255, 0.25) !important;
+  width: 0 !important;
+  position: absolute !important;
+  top: 20px !important;
+  bottom: 65px !important;
+  left: 219px !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Show all bar container sits on top with solid background */
+.grid-timeline-info-copy {
+  position: relative !important;
+  z-index: 5 !important;
+  background-color: #0a0a0a !important;
+  margin-top: 15px !important;
+  padding: 12px 0 8px 0 !important;
+}
+
+.timeline-dropdown {
+  position: relative !important;
+  z-index: 6 !important;
+  background-color: #0a0a0a !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Responsive fixes for small displays & mobile: prevents text cutoff */
+@media screen and (max-width: 991px) {
+  .timeline-divider {
+    left: 180px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .timeline-content {
+    height: auto !important;
+    min-height: 520px !important;
+    overflow: visible !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .grid-timeline-info {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .timeline-year {
+    margin-bottom: 4px !important;
+  }
+
+  .timeline-dots-wrap {
+    display: none !important;
+  }
+
+  .timeline-divider {
+    display: none !important; /* Hide line completely on mobile to prevent overlapping */
+  }
+
+  .timeline-description {
+    line-height: 1.5 !important;
+    font-size: 0.92rem !important;
+    margin-bottom: 0 !important;
+    word-break: break-word !important;
+  }
+
+  .grid-timeline-info-copy {
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    padding: 10px 0 !important;
+    background: transparent !important;
+  }
+
+  .grid-timeline-info-copy .empty-space,
+  .grid-timeline-info-copy .timeline-dots-wrap {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .timeline-content {
+    min-height: 560px !important;
+  }
+  .timeline-description {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
 </style><style>html.w-mod-js:not(.w-mod-ix3) :is(.type-text) {visibility: hidden !important;}
 /* Glassmorphism Navbar */
 .navbar {

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Portfolio Message</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #08090a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f0f0f0;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #08090a; padding: 40px 15px;">
+    <tr>
+      <td align="center">
+        <!-- Main Card Container with Glassmorphism Border -->
+        <table role="presentation" width="100%" style="max-width: 580px; background-color: #121316; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+          
+          <!-- Header Banner -->
+          <tr>
+            <td style="padding: 32px 32px 20px 32px; background: linear-gradient(180deg, rgba(164, 245, 100, 0.08) 0%, rgba(18, 19, 22, 0) 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td>
+                    <!-- Badge -->
+                    <div style="display: inline-block; padding: 6px 14px; background-color: rgba(164, 245, 100, 0.12); border: 1px solid rgba(164, 245, 100, 0.3); border-radius: 999px; color: #a4f564; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">
+                      ● New Portfolio Lead
+                    </div>
+                    <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #ffffff; letter-spacing: -0.02em;">
+                      Inquiry from {{from_name}}
+                    </h1>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Contact Details Table -->
+          <tr>
+            <td style="padding: 24px 32px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 18px 20px;">
+                <tr>
+                  <td style="padding: 6px 0; font-size: 13px; color: #888888; width: 80px;">Sender:</td>
+                  <td style="padding: 6px 0; font-size: 14px; color: #ffffff; font-weight: 600;">{{from_name}}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0; font-size: 13px; color: #888888;">Email:</td>
+                  <td style="padding: 6px 0; font-size: 14px; color: #a4f564; font-weight: 600;">
+                    <a href="mailto:{{from_email}}" style="color: #a4f564; text-decoration: none;">{{from_email}}</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message Box -->
+          <tr>
+            <td style="padding: 0 32px 24px 32px;">
+              <div style="font-size: 12px; font-weight: 700; color: #888888; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;">
+                Message Content
+              </div>
+              <div style="background-color: #0c0d0e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px; font-size: 15px; line-height: 1.6; color: #dddddd; white-space: pre-wrap;">{{message}}</div>
+            </td>
+          </tr>
+
+          <!-- Action Button -->
+          <tr>
+            <td style="padding: 0 32px 32px 32px;" align="center">
+              <a href="mailto:{{from_email}}?subject=Re:%20Portfolio%20Inquiry" style="display: inline-block; padding: 14px 32px; background-color: #a4f564; color: #0c0d0e; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 999px; letter-spacing: 0.02em; box-shadow: 0 4px 20px rgba(164, 245, 100, 0.35);">
+                Reply to {{from_name}} →
+              </a>
+            </td>
+          </tr>
+
+          <!-- Footer Info -->
+          <tr>
+            <td style="padding: 20px 32px; background-color: #0c0d0e; border-top: 1px solid rgba(255, 255, 255, 0.06); text-align: center;">
+              <p style="margin: 0; font-size: 12px; color: #666666;">
+                Satyam Singh Portfolio • Automated Notification System
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -477,10 +477,132 @@ html {
 
 
 /* ==========================================================================
-   WORK CARD ENHANCEMENTS – Uniform Card & Image Dimensions
+   WORK CARD ENHANCEMENTS – Strictly 1-Line Title & 2-Line Description
    ========================================================================== */
 .work-slide {
   height: 100% !important;
+}
+.work-item, .work-hero-list {
+  align-items: stretch !important;
+}
+.work-info, .work-hero-info {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.work-info:hover, .work-hero-info:hover {
+  transform: translateY(-4px) !important;
+}
+.work-content {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+.work-image-wrap {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+  background-color: #141518 !important;
+  flex-shrink: 0 !important;
+}
+.work-image-wrap .work-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  filter: blur(0px) brightness(1) !important;
+}
+.work-info:hover .work-image, .work-hero-info:hover .work-image {
+  transform: scale(1.04) !important;
+  filter: blur(6px) brightness(0.78) !important;
+}
+.work-button-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+.work-button {
+  background: rgba(14, 15, 18, 0.88) !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(164, 245, 100, 0.25) !important;
+  padding: 12px 26px !important;
+  border-radius: 999px !important;
+  opacity: 0 !important;
+  transform: translateY(14px) scale(0.92) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.work-info:hover .work-button, .work-hero-info:hover .work-button {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+.work-button-title {
+  color: #a4f564 !important;
+  font-weight: 600 !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.02em !important;
+}
+.grid-work-info {
+  margin-top: 12px !important;
+  padding-left: 0.625rem !important;
+  padding-right: 0.625rem !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* STRICT 1-LINE TITLE */
+.work-info-title {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+  min-width: 0 !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+.work-category {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+/* STRICT 2-LINE PARAGRAPH */
+.work-project-desc {
+  padding-left: 0.625rem !important;
+  padding-right: 0.625rem !important;
+  margin-top: 6px !important;
+  margin-bottom: 0.625rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  font-family: Inter, sans-serif !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  height: 2.85em !important;
+  max-height: 2.85em !important;
 }
 .work-item, .work-hero-list {
   align-items: stretch !important;

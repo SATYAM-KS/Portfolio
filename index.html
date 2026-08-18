@@ -2463,10 +2463,74 @@ input, textarea, select {
   max-width: 92% !important;
 }
 
+/* Hero Download CV Button – Sleek Proportional Pill Background */
+.hero-button {
+  display: flex !important;
+  width: fit-content !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .hero-button .button {
+  display: inline-flex !important;
+  width: fit-content !important;
+  padding: 4px !important;
+  background-color: rgba(0, 0, 0, 0.22) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.hero-button .button:hover {
+  background-color: rgba(0, 0, 0, 0.32) !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
+.hero-button .button-box {
+  background-color: #0a0a0a !important;
   padding: 8px 18px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  grid-column-gap: 8px !important;
+}
+
+.hero-button .button-text {
+  color: #ffffff !important;
   font-size: 0.88rem !important;
-  border-radius: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+}
+
+.hero-button .button-icon {
+  width: 15px !important;
+  height: 15px !important;
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-button .button {
+    padding: 3px !important;
+    border-radius: 10px !important;
+  }
+  .hero-button .button-box {
+    padding: 7px 14px !important;
+    border-radius: 7px !important;
+  }
+  .hero-button .button-text {
+    font-size: 0.82rem !important;
+  }
+  .hero-button .button-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
 }
 
 /* Interactive Stars Card Feeding into Bottom Slot */

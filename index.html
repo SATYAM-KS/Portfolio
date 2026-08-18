@@ -714,47 +714,54 @@ requestAnimationFrame(raf);
 
 
 <script>
-// Navbar Active Section Scroll Spy – single active item only
+// Navbar Active Section Scroll Spy – single active item, getBoundingClientRect based
 (function initNavbarScrollSpy() {
   const navItems = document.querySelectorAll('.navbar-item');
   if (!navItems.length) return;
 
-  const sectionIds = ['hero', 'work', 'about', 'service', 'contact'];
-  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+  // Map each nav item to the section ID it points to
+  const navMap = [
+    { id: 'hero',    hrefs: ['/', '/#hero', '#hero'] },
+    { id: 'work',    hrefs: ['/#work', '#work'] },
+    { id: 'about',   hrefs: ['/#about', '#about'] },
+    { id: 'service', hrefs: ['/#service', '#service'] },
+    { id: 'contact', hrefs: ['#contact', '/#contact'] }
+  ];
 
-  // Strip Webflow's w--current from ALL nav items immediately so it never conflicts
+  // Grab only the sections that actually exist in the DOM
+  const entries = navMap.map(entry => ({
+    ...entry,
+    el: document.getElementById(entry.id)
+  })).filter(e => e.el);
+
   function clearAll() {
-    navItems.forEach(item => {
-      item.classList.remove('active-nav', 'w--current');
-    });
+    navItems.forEach(item => item.classList.remove('active-nav', 'w--current'));
   }
 
   function updateActiveNav() {
-    // Use 40% down the viewport as the trigger point
-    const scrollPos = window.scrollY + window.innerHeight * 0.4;
-    let currentId = sectionIds[0];
+    // The trigger line: 45% down from top of viewport
+    const triggerY = window.innerHeight * 0.45;
 
-    for (let i = sections.length - 1; i >= 0; i--) {
-      if (scrollPos >= sections[i].offsetTop) {
-        currentId = sections[i].id;
-        break;
+    let activeId = entries[0].id; // default to hero
+
+    // Walk sections top-to-bottom; last one whose top is ABOVE triggerY wins
+    for (const entry of entries) {
+      const rect = entry.el.getBoundingClientRect();
+      if (rect.top <= triggerY) {
+        activeId = entry.id;
       }
     }
 
-    // Snap to contact when near bottom
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 80) {
-      currentId = 'contact';
-    }
+    // Force contact when user is at the very bottom of the page
+    const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 60;
+    if (atBottom) activeId = 'contact';
 
     clearAll();
 
-    // Set exactly ONE active item
     navItems.forEach(item => {
       const href = (item.getAttribute('href') || '').replace(/^\.\.\//, '/');
-      const matchesSection = href === '/#' + currentId ||
-        href === '#' + currentId ||
-        (currentId === 'hero' && (href === '/' || href === '/#hero'));
-      if (matchesSection) {
+      const match = navMap.find(e => e.id === activeId);
+      if (match && match.hrefs.includes(href)) {
         item.classList.add('active-nav');
       }
     });
@@ -763,7 +770,7 @@ requestAnimationFrame(raf);
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   window.addEventListener('resize', updateActiveNav);
   window.addEventListener('DOMContentLoaded', updateActiveNav);
-  setTimeout(updateActiveNav, 150);
+  setTimeout(updateActiveNav, 200);
 })();
 </script>
 
